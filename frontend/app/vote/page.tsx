@@ -118,7 +118,10 @@ export default function VotePage() {
 
         {/* Election header */}
         {election && step !== "done" && (
-          <div style={{ marginBottom: 36 }} className="animate-fade-in-up" style={{ opacity: 0 }}>
+          <div
+            className="animate-fade-in-up"
+            style={{ marginBottom: 36, opacity: 0 }}
+          >
             <div className="badge badge-outline" style={{ marginBottom: 12 }}>ACTIVE ELECTION</div>
             <h1 style={{ fontSize: "1.6rem", fontWeight: 900, marginBottom: 6 }}>{election.title}</h1>
             <p style={{ color: "var(--text-muted)", fontSize: "0.88rem" }}>{election.description}</p>
@@ -242,11 +245,11 @@ export default function VotePage() {
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
                 <div>
                   <div className="uppercase-label" style={{ marginBottom: 6 }}>Receipt ID</div>
-                  <div className="hash-display">{(receipt as {receiptId:string}).receiptId}</div>
+                  <div className="hash-display">{(receipt as { receiptId: string }).receiptId}</div>
                 </div>
                 <div>
                   <div className="uppercase-label" style={{ marginBottom: 6 }}>SHA-3-256 Integrity Hash</div>
-                  <div className="hash-display">{(receipt as {integrityHash:string}).integrityHash}</div>
+                  <div className="hash-display">{(receipt as { integrityHash: string }).integrityHash}</div>
                 </div>
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                   <span className="badge badge-white">Kyber-1024</span>
@@ -256,7 +259,7 @@ export default function VotePage() {
               </div>
 
               <div style={{ marginTop: 20, display: "flex", gap: 10 }}>
-                <button className="btn-primary" style={{ flex: 1 }} onClick={() => router.push(`/confirm?receipt=${(receipt as {receiptId:string}).receiptId}`)}>
+                <button className="btn-primary" style={{ flex: 1 }} onClick={() => router.push(`/confirm?receipt=${(receipt as { receiptId: string }).receiptId}`)}>
                   View Full Receipt
                 </button>
                 <button className="btn-secondary" onClick={() => { clearAuth(); router.push("/"); }}>Sign Out</button>
